@@ -60,7 +60,7 @@ const PhoneVerification = () => {
         <span>Change Number</span>
         <span>Re-send OTP</span>
       </div>
-      <button className="btn">Verify Phone databer</button>
+      <button className="btn">Verify Phone Number</button>
     </div>
   );
 };
