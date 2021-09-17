@@ -12,9 +12,10 @@ body {
 
 .container {
   background-color: #fff;
-  width: 80%;
+  width: 90%;
   max-width: 500px;
-  border: 1px solid black;
+  border: 1px solid #cccc;
+  box-shadow: 0 20px 5px 0 rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   position: absolute;
   top: 50%;
@@ -48,8 +49,8 @@ body {
     border: 0;
 
     .letter {
-      // border-bottom: 1px solid black;
       display: inline-flex;
+      background-color: #fff;
       font-size: 30px;
       margin: 0 5px;
       align-items: center;
@@ -68,18 +69,21 @@ body {
 
     span {
       font-size: 11px;
-      color: blue;
+      color: #6498e1;
       cursor: pointer;
       &:focus {
         outline: 0;
       }
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
 
-  .btn {
-    padding: 0.5rem 2rem;
+  .verify-btn {
+    padding: 1rem 2rem;
     border: 0;
-    background-color: green;
+    background-color: #2158ca;
     border-radius: 20px;
     color: #fff;
     cursor: pointer;

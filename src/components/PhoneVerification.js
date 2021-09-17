@@ -8,30 +8,37 @@ const PhoneVerification = () => {
     if (element.value === "" || re.test(element.value)) {
       setOtp([...otp.map((num, idx) => (idx === index ? element.value : num))]);
     }
-    console.log(element.key);
+    // For on next Input
     if (element.nextSibling) {
       element.nextSibling.focus();
     }
   };
 
   const handleKeyPress = (e, idx) => {
+    // Focus on previous Input
     if (e.keyCode === 8) {
-      console.log(e.keyCode);
       if (e.target.previousSibling) {
         e.target.previousSibling.focus();
       }
     }
+    // Use Arrow keys to move left and right
     if (e.keyCode === 37) {
-      console.log(e.keyCode);
       if (e.target.previousSibling) {
         e.target.previousSibling.focus();
       }
     }
     if (e.keyCode === 39) {
-      console.log(e.keyCode);
       if (e.target.nextSibling) {
         e.target.nextSibling.focus();
       }
+    }
+  };
+
+  // Pasting data from clipboard
+  const handlePasteEvent = (data) => {
+    let pastedData = data.split("");
+    for (let i = 0; i < pastedData.length; i++) {
+      otp.fill(pastedData[i], i);
     }
   };
 
@@ -51,6 +58,7 @@ const PhoneVerification = () => {
               onChange={(e) => handleChange(e.target, idx)}
               onFocus={(e) => e.target.select()}
               onKeyUp={(e) => handleKeyPress(e, idx)}
+              onPaste={(e) => handlePasteEvent(e.clipboardData.getData("Text"))}
             />
           );
         })}
@@ -60,7 +68,7 @@ const PhoneVerification = () => {
         <span>Change Number</span>
         <span>Re-send OTP</span>
       </div>
-      <button className="btn">Verify Phone Number</button>
+      <button className="verify-btn">Verify Phone Number</button>
     </div>
   );
 };
