@@ -8,13 +8,13 @@ const PhoneVerification = () => {
     if (element.value === "" || re.test(element.value)) {
       setOtp([...otp.map((num, idx) => (idx === index ? element.value : num))]);
     }
-    // For on next Input
-    if (element.nextSibling) {
-      element.nextSibling.focus();
-    }
   };
 
   const handleKeyPress = (e, idx) => {
+    // Focus on next Input
+    if (e.target.nextSibling) {
+      e.target.nextSibling.focus();
+    }
     // Focus on previous Input
     if (e.keyCode === 8) {
       if (e.target.previousSibling) {
